@@ -24,25 +24,23 @@ class TimeSyncNode(Node):
         super().__init__('sync_node')
         qos = QoSProfile(depth=10)
        
-        self.image_sub = Subscriber(Image, "/image_rect", self.image_callback, qos)
-        self.info_sub = Subscriber(CameraInfo, "/camera_info", self.info_callback, qos)
-
+        self.image_sub = Subscriber(self, Image, "image_raw")
+        self.info_sub = Subscriber(self, CameraInfo, "camera_info_")
+        self.synced_image_pub = self.create_publisher(Image, 'image_rect', qos)
+        self.synced_info_pub = self.create_publisher(CameraInfo, 'camera_info', qos)
+	
         queue_size = 10
         max_delay = 0.05
         self.time_sync = ApproximateTimeSynchronizer([self.image_sub, self.info_sub],
                                                      queue_size, max_delay)
         self.time_sync.registerCallback(self.SyncCallback)
-    
-    def image_callback(self, msg):
-    	self.get_logger().info(f"Recieved image")
-  
-    def info_callback(self, msg):
-    	self.get_logger().info(f"Recived camera info")
-
+   
     def SyncCallback(self, image, camera_info):
     	image_sec = image.header.stamp.sec
     	info_sec = camera_info.header.stamp.sec
     	self.get_logger().info(f'Sync callback with {image_sec} and {info_sec} as times')
+    	self.synced_image_pub.publish(image)
+    	self.synced_info_pub.publish(camera_info)
     	
 
 def main(args=None):
@@ -60,3 +58,4 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+   
