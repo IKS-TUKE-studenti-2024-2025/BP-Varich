@@ -102,4 +102,18 @@ AprilTagNode::AprilTagNode(const rclcpp::NodeOptions& options)
         rmw_qos_profile_sensor_data
     );
 ```
-
+Starting >>> apriltag_ros
+--- stderr: apriltag_ros                               
+/home/dvar1ch/perception_ws/src/apriltag_ros/src/AprilTagNode.cpp: In constructor ‘AprilTagNode::AprilTagNode(const rclcpp::NodeOptions&)’:
+/home/dvar1ch/perception_ws/src/apriltag_ros/src/AprilTagNode.cpp:113:5: error: passing ‘const image_transport::CameraSubscriber’ as ‘this’ argument discards qualifiers [-fpermissive]
+  113 |     );
+      |     ^
+In file included from /home/dvar1ch/perception_ws/src/apriltag_ros/src/AprilTagNode.cpp:10:
+/opt/ros/humble/include/image_transport/image_transport/camera_subscriber.hpp:63:7: note:   in call to ‘image_transport::CameraSubscriber& image_transport::CameraSubscriber::operator=(image_transport::CameraSubscriber&&)’
+   63 | class CameraSubscriber
+      |       ^~~~~~~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/AprilTagNode.dir/build.make:76: CMakeFiles/AprilTagNode.dir/src/AprilTagNode.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:225: CMakeFiles/AprilTagNode.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
+---
+Failed   <<< apriltag_ros [21.7s, exited with code 2]
