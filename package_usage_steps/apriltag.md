@@ -89,5 +89,17 @@ AprilTagNode::AprilTagNode(const rclcpp::NodeOptions& options)
 
 `ros2 run time_sync_node sync_node`
 
+```
+// Установим параметр image_transport перед подпиской
+    std::string transport = this->declare_parameter("image_transport", "compressed");
 
+    // Инициализация подписки на камеру с учетом параметра transport
+    sub_cam = image_transport::create_camera_subscription(
+        this,
+        this->get_node_topics_interface()->resolve_topic_name("image_raw"),
+        std::bind(&AprilTagNode::onCamera, this, std::placeholders::_1, std::placeholders::_2),
+        transport,
+        rmw_qos_profile_sensor_data
+    );
+```
 
