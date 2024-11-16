@@ -62,3 +62,32 @@ if __name__ == '__main__':
    
    
 ```
+
+```
+AprilTagNode::AprilTagNode(const rclcpp::NodeOptions& options)
+  : Node("apriltag", options),
+    // parameter
+    cb_parameter(add_on_set_parameters_callback(std::bind(&AprilTagNode::onParameter, this, std::placeholders::_1))),
+    td(apriltag_detector_create()),
+    // topics
+    sub_cam(image_transport::create_camera_subscription(
+        this,
+        this->get_node_topics_interface()->resolve_topic_name("image_raw/compressed"), // ! image_rect
+        std::bind(&AprilTagNode::onCamera, this, std::placeholders::_1, std::placeholders::_2),
+        declare_parameter("image_transport", "compressed", descr({}, true)), // raw
+        rmw_qos_profile_sensor_data)),
+    pub_detections(create_publisher<apriltag_msgs::msg::AprilTagDetectionArray>("detections", rclcpp::QoS(1))),
+    tf_broadcaster(this)
+{
+```
+
+`ros2 run usb_cam usb_cam_node_exe --ros-args -p video_device:="/dev/video0" -p pixel_format:="mjpeg2rgb" -p camera_info_url:="file://$HOME/calibration_data/ost.yaml" -r camera_info:=/camera_info_t -p image_transport:='compressed' -r image_raw/compressed:=/image_raw/compressed`
+
+`ros2 run apriltag_ros apriltag_node --ros-args -r image_raw/compressed:=/image_raw/compressed -r camera_info:=/camera_info_t  --params-file `ros2 pkg prefix apriltag_ros`/share/apriltag_ros/cfg/tags_36h11.yaml `
+
+`ros2 run topic_tools throttle messages /camera_info_throttled 2.0 /camera_info_t`
+
+`ros2 run time_sync_node sync_node`
+
+
+
