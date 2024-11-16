@@ -14,10 +14,9 @@ import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile
 from rclpy.clock import Clock
-import image_transport
 
 from message_filters import Subscriber, TimeSynchronizer
-from sensor_msgs.msg import Image, CameraInfo
+from sensor_msgs.msg import CompressedImage, CameraInfo
 
 
 class TimeSyncNode(Node):
@@ -26,13 +25,12 @@ class TimeSyncNode(Node):
         super().__init__('sync_node')
         qos = QoSProfile(depth=10)
        
-       	it = image_transport.ImageTransport(rospy)
-        self.image_sub = it.Subscriber(self, Image, "image_rect")
-        self.info_sub = Subscriber(self, CameraInfo, "camera_info")
-        # self.synced_image_pub = self.create_publisher(Image, 'image_rect', qos)
-        # self.synced_info_pub = self.create_publisher(CameraInfo, 'camera_info', qos)
+        self.image_sub = Subscriber(self, CompressedImage, '/image_raw/compressed')
+        self.info_sub = Subscriber(self, CameraInfo, "/camera_info_t")
+        # self.synced_image_pub = self.create_publisher(CompressedImage, '/image_rect', qos)
+        # self.synced_info_pub = self.create_publisher(CameraInfo, '/camera_info', qos)
 	
-        queue_size = 10000
+        queue_size = 300
         # max_delay = 0.5
         self.time_sync = TimeSynchronizer([self.image_sub, self.info_sub],
                                                      queue_size)
@@ -42,8 +40,8 @@ class TimeSyncNode(Node):
     	image_sec = image.header.stamp.sec
     	info_sec = camera_info.header.stamp.sec
     	self.get_logger().info(f'Sync callback with {image_sec} and {info_sec} as times')
-    	#self.synced_image_pub.publish(image)
-    	#self.synced_info_pub.publish(camera_info)
+    	# self.synced_image_pub.publish(image)
+    	# self.synced_info_pub.publish(camera_info)
     	
 
 def main(args=None):
@@ -61,5 +59,6 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+   
    
 ```
