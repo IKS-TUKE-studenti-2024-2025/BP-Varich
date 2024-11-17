@@ -49,8 +49,26 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    Tento príkaz zobrazí zoznam nainštalovaných distribúcií a ich verzie.
 
 7. **Inštalácia ROS2 Humble**: Otvorte terminál WSL, ktorý sa objaví v ponuke «Štart» (alebo jednoducho zadajte «wsl» do vyhľadávania Windows). Potom nainštalujte metaooperačný systém ROS2 Humble podľa pokynov v oficiálnej dokumentácii na inštaláciu.
-8. раб простра
-9. пакеты
+8. **Vytvorenie pracovného priestoru**: Pre vytvorenie pracovného priestoru v ROS2 postupujte nasledovne. Vytvorte nový adresár pre pracovný priestor, napríklad `perception_ws`, a prejdite doň:
+   ```bash
+   mkdir -p ~/perception_ws/src
+   cd ~/perception_ws/src
+   ```
+   Potom vykonajte príkaz na inicializáciu pracovného priestoru:
+   ```bash
+   colcon build
+   ```
+   Následne je potrebné aktivovať pracovný priestor:
+   ```bash
+   source ~/perception_ws/install/setup.bash
+   ```
+   Teraz môžete pridávať balíky do adresára `src` a kompilovať ich pomocou príkazu `colcon build`.
+
+9. **Inštalácia balíkov**: Aby ste mohli otestovať balík [AprilTag_Ros](https://github.com/christianrauch/apriltag_ros), je potrebné najprv vykonať kalibráciu kamery. Na to nainštalujte balík na kalibráciu kamery pomocou nasledujúceho príkazu:
+   ```bash
+   sudo apt install ros-humble-camera-calibration
+   ```
+   Takisto na zapnutie kamery a zabezpečenie kompatibility s ROS2 je potrebné nainštalovať jeden z ovládačov, ako napríklad [usb_cam](https://index.ros.org/r/usb_cam/#galactic) alebo [opencv_cam](https://index.ros.org/r/usb_cam/#galactic). 
 10. монтаж ядра линк
 11. калибровка + юсб_кам, опен_св 
 
@@ -90,3 +108,4 @@ ros2 run topic_tools throttle messages /camera/camera_info 5.0 /camera/camera_in
 2. [Installation ROS2 Humble Ubuntu (deb packages)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 4. [Ubuntu 22.04](https://releases.ubuntu.com/jammy/)
+5. [Online/Offline Camera Calibration in ROS 2](https://medium.com/starschema-blog/offline-camera-calibration-in-ros-2-45e81df12555#:~:text=Follow%20this%20this%20step-by-step%20guide%20to%20learn%20how,camera%20for%20computer%20vision%20applications%20in%20ROS%202)
