@@ -69,7 +69,15 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    sudo apt install ros-humble-camera-calibration
    ```
    Takisto na zapnutie kamery a zabezpečenie kompatibility s ROS2 je potrebné nainštalovať jeden z ovládačov, ako napríklad [usb_cam](https://index.ros.org/r/usb_cam/#galactic) alebo [opencv_cam](https://index.ros.org/r/usb_cam/#galactic). 
-10. монтаж ядра линк
+10. **Problém**: Pri pokuse o zapnutie kamery cez balíky `usb_cam` alebo `opencv_cam` sa objavil problém, ktorý spočíval v potrebe nainštalovať novú verziu jadra Linuxu. Na vyriešenie tohto problému som našiel [návod](https://iz6.ru/semka-video-s-vebkamery-s-pomoshhju-opencv-v-wsl2/), ktorý popisuje, ako nainštalovať správnu verziu jadra, a tento návod mi pomohol odstrániť ťažkosti. Hlavná vec, ktorú treba vedieť, je, že v súbore `.wslconfig` je potrebné nastaviť minimálne 4 GB operačnej pamäte alebo viac, pretože táto verzia vyžaduje značné množstvo pamäte. Tu je príklad konfigurácie pre súbor `.wslconfig`:
+
+    ```
+    [wsl2]
+    memory=6GB
+    processors=2
+    swap=0
+    localhostForwarding=true
+    ```
 11. калибровка + юсб_кам, опен_св 
 
 ### Virtual Box 
