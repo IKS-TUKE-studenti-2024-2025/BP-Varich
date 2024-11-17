@@ -13,13 +13,21 @@ AprilTag je vizuálny fiduciálny systém, ktorý je užitočný pre širokú š
 - ARToolkit má veľmi podobný cieľ ako AprilTagy, avšak, ako ukazujú naše technické články, AprilTag prekonáva ARToolkit z hľadiska miery detekcie a presnosti.
 
 ## Environment Setup
-...
+Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nastaviť pracovné prostredie, v ktorom budeme tieto balíky testovať. Skúsil som niekoľko spôsobov inštalácie: najprv som sa pokúsil nainštalovať ROS2 Humble na Windows cez WSL, a následne som sa rozhodol nainštalovať ROS2 Humble v virtuálnom stroji pomocou VirtualBoxu, pretože pri práci s WSL som narazil na problémy s pripojením vstavané kamery. Nižšie sú uvedené kroky inštalácie pre oba prístupy:
 
+> Je potrebné stiahnuť Ubuntu 22.04 (Jammy Jellyfish), pretože ROS2 Humble je podporovaný iba na tejto verzii, a taktiež používame práve Humble, pretože balíky NVIDIA ISAAC ROS sú podporované iba na tejto verzii. Je to spravodlivé porovnávacie prostredie pre balíky AprilTag, ktoré bežia na CPU, a pre AprilTag NVIDIA ISAAC ROS, ktoré bežia na GPU a sú navrhnuté na urýchlené spracovanie dát.
+    
 ### WSL 
 ...
 
 ### Virtual Box 
 ...
+
+#### Sources: 
+1. [Install ROS2 on Windows (with WSL2) Video](https://www.youtube.com/watch?v=F3n0SMAFheM&t=413s)
+2. [Installation ROS2 Humble Ubuntu (deb packages)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
+3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+4. [Ubuntu 22.04](https://releases.ubuntu.com/jammy/)
 
 ## AprilTag Detector
 ...
