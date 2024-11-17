@@ -97,10 +97,13 @@ ros2 run topic_tools throttle messages /camera/camera_info 5.0 /camera/camera_in
 ## AprilTag Ros 
 ...
 
-### Camera Calibration
+## AprilTag NVIDIA ISAAC ROS 
 ...
 
-## AprilTag NVIDIA ISAAC ROS 
+## Comparison 
+...
+
+## Conclusion
 ...
 
 ## Sources: 
