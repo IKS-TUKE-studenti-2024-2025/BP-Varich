@@ -106,6 +106,8 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 ## AprilTag Detector
 ...
 
+**Github Repo:** [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector/README.md)
+
 https://github.com/user-attachments/assets/6754d298-5c5f-4afd-a693-d837e96173bb
 
 ![tags_detection](https://github.com/user-attachments/assets/ad69f67f-529f-4b87-be01-8984d99efb8c)
