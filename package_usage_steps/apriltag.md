@@ -30,7 +30,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 
 4. **Inštalácia Ubuntu cez Microsoft Store**: Po reštartovaní systému otvorte Microsoft Store, vyhľadajte verziu `Ubuntu 22.04 LTS` (alebo inú stabilnú verziu, ktorá vám vyhovuje) a nainštalujte ju. Počas inštalácie vám bude ponúknuté, aby ste si vybrali používateľské meno a heslo pre váš nový systém.
 
-5. **Spustenie Ubuntu**: Po dokončení inštalácie otvorte terminál Ubuntu, ktorý sa objaví v ponuke «Štart» (alebo jednoducho zadajte „Ubuntu“ do vyhľadávania Windows). V termináli Ubuntu odporúčame vykonať nasledujúce príkazy:
+5. **Spustenie Ubuntu**: Po dokončení inštalácie otvorte terminál Ubuntu, ktorý sa objaví v ponuke «Štart» (alebo jednoducho zadajte «Ubuntu» do vyhľadávania Windows). V termináli Ubuntu odporúčame vykonať nasledujúce príkazy:
    ```bash
    sudo apt update
    sudo apt upgrade
