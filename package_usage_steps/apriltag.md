@@ -109,6 +109,9 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 
 https://github.com/user-attachments/assets/6754d298-5c5f-4afd-a693-d837e96173bb
 
+![tags_detection](https://github.com/user-attachments/assets/ad69f67f-529f-4b87-be01-8984d99efb8c)
+
+![apriltag_detector_rosgraph](https://github.com/user-attachments/assets/293b4aa4-181c-4020-82c8-840eb3c40b6a)
 
 
 ### Video stream
