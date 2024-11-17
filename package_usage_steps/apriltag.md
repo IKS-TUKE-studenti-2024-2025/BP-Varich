@@ -78,10 +78,29 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     swap=0
     localhostForwarding=true
     ```
-11. калибровка + юсб_кам, опен_св 
+11. **Pokus o kalibráciu kamery**: Po úspešnej zostave jadra môžeme použiť príkaz `usbipd` na pripojenie a priradenie USB zariadenia v WSL. To nám umožní zapnúť kameru cez WSL a vyskúšať jej kalibráciu pomocou príkazu:
+
+    ```bash
+    ros2 run camera_calibration cameracalibrator --size 7x9 --square 0.015 \
+      --ros-args -r image:=/image_raw
+    ```
+
+    Na zapnutie kamery v inom termináli môžeme použiť balíčky `usb_cam` alebo `opencv_cam`, napríklad:
+
+    ```bash
+    ros2 run usb_cam usb_cam_node_exe
+    ```
+
+    alebo
+
+    ```bash
+    ros2 run opencv_cam opencv_cam_main
+    ```
+
+    Bohužiaľ, oba balíčky na zapnutie kamery nefungujú správne a pri ich spustení sa objavujú chyby, ktorých riešenie si vyžaduje veľa času. Ako alternatívu sme sa rozhodli prejsť na používanie virtuálnehо stroja, pretože ten podporuje plnohodnotné ovládače, čo rieši tento problém.
 
 ### Virtual Box 
-...
+1. 
 
 
 ## AprilTag Detector
