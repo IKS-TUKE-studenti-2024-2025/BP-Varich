@@ -18,12 +18,42 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 > Je potrebné stiahnuť Ubuntu 22.04 (Jammy Jellyfish), pretože ROS2 Humble je podporovaný iba na tejto verzii, a taktiež používame práve Humble, pretože balíky NVIDIA ISAAC ROS sú podporované iba na tejto verzii. Je to spravodlivé porovnávacie prostredie pre balíky AprilTag, ktoré bežia na CPU, a pre AprilTag NVIDIA ISAAC ROS, ktoré bežia na GPU a sú navrhnuté na urýchlené spracovanie dát.
     
 ### WSL 
-...
+1. **Kontrola systémových požiadaviek**: Na používanie WSL je potrebné, aby na vašom počítači bola nainštalovaná Windows 10 verzie 2004 alebo vyššej, alebo Windows 11. Takisto sa uistite, že máte zapnuté funkcie virtualizácie v BIOS-e.
+
+2. **Inštalácia WSL**: Otvorte Windows PowerShell s právami správcu a zadajte nasledujúci príkaz, potom stlačte Enter:
+   ```bash
+   wsl --install
+   ```
+   Tento príkaz automaticky nainštaluje WSL a všetky potrebné komponenty.
+
+3. **Aktivácia potrebných komponentov Windows**: Prejdite do Ovládacieho panela, otvorte položku „Programy a funkcie“ a vyberte „Zapnúť alebo vypnúť komponenty Windows“. Uistite sa, že sú aktivované tieto komponenty: Virtual Machine Platform, Windows Hypervisor Platform, Windows Subsystem for Linux. Potom kliknite na OK a reštartujte operačný systém Windows.
+
+4. **Inštalácia Ubuntu cez Microsoft Store**: Po reštartovaní systému otvorte Microsoft Store, vyhľadajte verziu Ubuntu 22.04 LTS (alebo inú stabilnú verziu, ktorá vám vyhovuje) a nainštalujte ju. Počas inštalácie vám bude ponúknuté, aby ste si vybrali používateľské meno a heslo pre váš nový systém.
+
+5. **Spustenie Ubuntu**: Po dokončení inštalácie otvorte terminál Ubuntu, ktorý sa objaví v ponuke „Štart“ (alebo jednoducho zadajte „Ubuntu“ do vyhľadávania Windows). V termináli Ubuntu odporúčame vykonať nasledujúce príkazy:
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   sudo apt autoremove
+   ```
+   (Pre udržiavanie systému aktuálneho).
+
+6. **Aktualizácia a nastavenie WSL 2**: Po inštalácii sa bude predvolene používať WSL 1. Ak chcete prepnúť na WSL 2, ktorý je rýchlejší a podporuje Docker a ďalšie nástroje pre vývoj, vykonajte nasledujúce kroky. Otvorte Windows PowerShell s právami správcu a zadajte príkaz:
+   ```bash
+   wsl --set-default-version 2
+   ```
+   Aby ste sa uistili, že WSL 2 je aktivovaný, zadajte príkaz:
+   ```bash
+   wsl --list --verbose
+   ```
+   Tento príkaz zobrazí zoznam nainštalovaných distribúcií a ich verzie.
+
+7. **Inštalácia ROS2 Humble**: Otvorte terminál WSL, ktorý sa objaví v ponuke „Štart“ (alebo jednoducho zadajte „wsl“ do vyhľadávania Windows). Potom nainštalujte metaooperačný systém ROS2 Humble podľa pokynov v oficiálnej dokumentácii na inštaláciu.
 
 ### Virtual Box 
 ...
 
-#### Sources: 
+### Sources: 
 1. [Install ROS2 on Windows (with WSL2) Video](https://www.youtube.com/watch?v=F3n0SMAFheM&t=413s)
 2. [Installation ROS2 Humble Ubuntu (deb packages)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
