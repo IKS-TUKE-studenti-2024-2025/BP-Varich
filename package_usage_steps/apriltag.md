@@ -12,8 +12,19 @@ AprilTag je vizuálny fiduciálny systém, ktorý je užitočný pre širokú š
 - AprilTagy sú koncepčne podobné QR kódom, pretože sú typom dvojrozmerného čiarového kódu. Sú však navrhnuté tak, aby kódovali oveľa menšie množstvo dát (medzi 4 a 12 bitov), čo umožňuje ich robustnejšiu detekciu a z väčšej vzdialenosti. Navyše sú optimalizované pre vysokú lokalizačnú presnosť – môžete vypočítať presnú 3D pozíciu AprilTagu vo vzťahu ku kamere.
 - ARToolkit má veľmi podobný cieľ ako AprilTagy, avšak, ako ukazujú naše technické články, AprilTag prekonáva ARToolkit z hľadiska miery detekcie a presnosti.
 
-## AprilTag Detector
+## Environment Setup
+...
 
+### WSL 
+...
+
+### Virtual Box 
+...
+
+## AprilTag Detector
+...
+
+### Video stream
 ros2 run usb_cam usb_cam_node_exe --ros-args -p video_device:="/dev/video0" -p pixel_format:="mjpeg2rgb" -p camera_info_url:="file://$HOME/calibration_data/ost.yaml" -r image_raw:=/camera/image_raw -r camera_info:=/camera/camera_info 
 
 ros2 run apriltag_ros apriltag_node --ros-args -r /camera/image_rect:='/camera/image_raw' -r /camera/camera_info:='/camera/camera_info_throttled' --params-file `ros2 pkg prefix apriltag_ros`/share/apriltag_ros/cfg/tags_36h11.yaml
@@ -22,3 +33,12 @@ ros2 run topic_tools throttle messages /camera/camera_info 5.0 /camera/camera_in
 
 
 [image_transport] Topics '/image_rect' and '/camera_info' do not appear to be synchronized. In the last 10s:
+
+## AprilTag Ros 
+...
+
+### Camera Calibration
+...
+
+## AprilTag NVIDIA ISAAC ROS 
+...
