@@ -1,7 +1,9 @@
 # AprilTag 
 AprilTag je vizuálny fiduciálny systém, ktorý je užitočný pre širokú škálu úloh, vrátane rozšírenej reality, robotiky a kalibrácie kamier. Ciele môžu byť vytvorené pomocou bežnej tlačiarne a softvér na detekciu AprilTag vypočítava presnú 3D pozíciu, orientáciu a identitu tagov vo vzťahu k kamere. Knižnica AprilTag je implementovaná v jazyku C bez externých závislostí. Je navrhnutá tak, aby sa ľahko integrovala do iných aplikácií a bola prenosná aj na vstavané zariadenia. Výkon v reálnom čase možno dosiahnuť aj na procesoroch na úrovni mobilných telefónov. 
 
-**GitHub Repo:** [AprilRobotics](https://github.com/AprilRobotics/apriltag)
+**Official Website**: [Apriltag](https://april.eecs.umich.edu/software/apriltag) | 
+**GitHub Repo:** [AprilRobotics](https://github.com/AprilRobotics/apriltag) |
+**Developed By**: [The APRIL Robotics Laboratory at the University of Michigan](https://april.eecs.umich.edu) 
 
 ### Technical Description
 ![image](https://github.com/user-attachments/assets/d39981f3-a413-46a8-ac0a-bdeb5ba20779)
