@@ -26,11 +26,11 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    ```
    Tento príkaz automaticky nainštaluje WSL a všetky potrebné komponenty.
 
-3. **Aktivácia potrebných komponentov Windows**: Prejdite do Ovládacieho panela, otvorte položku „Programy a funkcie“ a vyberte „Zapnúť alebo vypnúť komponenty Windows“. Uistite sa, že sú aktivované tieto komponenty: Virtual Machine Platform, Windows Hypervisor Platform, Windows Subsystem for Linux. Potom kliknite na OK a reštartujte operačný systém Windows.
+3. **Aktivácia potrebných komponentov Windows**: Prejdite do Ovládacieho panela, otvorte položku «Programy a funkcie» a vyberte «Zapnúť alebo vypnúť komponenty Windows». Uistite sa, že sú aktivované tieto komponenty: `Virtual Machine Platform`, `Windows Hypervisor Platform`, `Windows Subsystem for Linux`. Potom kliknite na «OK» a reštartujte operačný systém Windows.
 
-4. **Inštalácia Ubuntu cez Microsoft Store**: Po reštartovaní systému otvorte Microsoft Store, vyhľadajte verziu Ubuntu 22.04 LTS (alebo inú stabilnú verziu, ktorá vám vyhovuje) a nainštalujte ju. Počas inštalácie vám bude ponúknuté, aby ste si vybrali používateľské meno a heslo pre váš nový systém.
+4. **Inštalácia Ubuntu cez Microsoft Store**: Po reštartovaní systému otvorte Microsoft Store, vyhľadajte verziu `Ubuntu 22.04 LTS` (alebo inú stabilnú verziu, ktorá vám vyhovuje) a nainštalujte ju. Počas inštalácie vám bude ponúknuté, aby ste si vybrali používateľské meno a heslo pre váš nový systém.
 
-5. **Spustenie Ubuntu**: Po dokončení inštalácie otvorte terminál Ubuntu, ktorý sa objaví v ponuke „Štart“ (alebo jednoducho zadajte „Ubuntu“ do vyhľadávania Windows). V termináli Ubuntu odporúčame vykonať nasledujúce príkazy:
+5. **Spustenie Ubuntu**: Po dokončení inštalácie otvorte terminál Ubuntu, ktorý sa objaví v ponuke «Štart» (alebo jednoducho zadajte „Ubuntu“ do vyhľadávania Windows). V termináli Ubuntu odporúčame vykonať nasledujúce príkazy:
    ```bash
    sudo apt update
    sudo apt upgrade
@@ -48,19 +48,23 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    ```
    Tento príkaz zobrazí zoznam nainštalovaných distribúcií a ich verzie.
 
-7. **Inštalácia ROS2 Humble**: Otvorte terminál WSL, ktorý sa objaví v ponuke „Štart“ (alebo jednoducho zadajte „wsl“ do vyhľadávania Windows). Potom nainštalujte metaooperačný systém ROS2 Humble podľa pokynov v oficiálnej dokumentácii na inštaláciu.
+7. **Inštalácia ROS2 Humble**: Otvorte terminál WSL, ktorý sa objaví v ponuke «Štart» (alebo jednoducho zadajte «wsl» do vyhľadávania Windows). Potom nainštalujte metaooperačný systém ROS2 Humble podľa pokynov v oficiálnej dokumentácii na inštaláciu.
+8. раб простра
+9. пакеты
+10. монтаж ядра линк
+11. калибровка + юсб_кам, опен_св 
 
 ### Virtual Box 
 ...
 
-### Sources: 
-1. [Install ROS2 on Windows (with WSL2) Video](https://www.youtube.com/watch?v=F3n0SMAFheM&t=413s)
-2. [Installation ROS2 Humble Ubuntu (deb packages)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
-3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-4. [Ubuntu 22.04](https://releases.ubuntu.com/jammy/)
 
 ## AprilTag Detector
 ...
+
+
+https://github.com/user-attachments/assets/6754d298-5c5f-4afd-a693-d837e96173bb
+
+
 
 ### Video stream
 ros2 run usb_cam usb_cam_node_exe --ros-args -p video_device:="/dev/video0" -p pixel_format:="mjpeg2rgb" -p camera_info_url:="file://$HOME/calibration_data/ost.yaml" -r image_raw:=/camera/image_raw -r camera_info:=/camera/camera_info 
@@ -80,3 +84,9 @@ ros2 run topic_tools throttle messages /camera/camera_info 5.0 /camera/camera_in
 
 ## AprilTag NVIDIA ISAAC ROS 
 ...
+
+## Sources: 
+1. [Install ROS2 on Windows (with WSL2) Video](https://www.youtube.com/watch?v=F3n0SMAFheM&t=413s)
+2. [Installation ROS2 Humble Ubuntu (deb packages)](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
+3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+4. [Ubuntu 22.04](https://releases.ubuntu.com/jammy/)
