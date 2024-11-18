@@ -69,7 +69,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    sudo apt install ros-humble-camera-calibration
    ```
    Takisto na zapnutie kamery a zabezpečenie kompatibility s ROS2 je potrebné nainštalovať jeden z ovládačov, ako napríklad [usb_cam](https://index.ros.org/r/usb_cam/#galactic) alebo [opencv_cam](https://index.ros.org/r/usb_cam/#galactic). 
-10. **Problém**: Pri pokuse o zapnutie kamery cez balíky `usb_cam` alebo `opencv_cam` sa objavil problém, ktorý spočíval v potrebe nainštalovať novú verziu jadra Linuxu. Na vyriešenie tohto problému som našiel [návod](https://iz6.ru/semka-video-s-vebkamery-s-pomoshhju-opencv-v-wsl2/), ktorý popisuje, ako nainštalovať správnu verziu jadra, a tento návod mi pomohol odstrániť ťažkosti. Hlavná vec, ktorú treba vedieť, je, že v súbore `.wslconfig` je potrebné nastaviť minimálne 4 GB operačnej pamäte alebo viac, pretože táto verzia vyžaduje značné množstvo pamäte. Tu je príklad konfigurácie pre súbor `.wslconfig`:
+10. **Problém**: Pri pokuse o zapnutie kamery cez balíky `usb_cam` alebo `opencv_cam` sa objavil problém, ktorý spočíval v potrebe nainštalovať novú verziu jadra Linuxu, pretože WSL neposkytuje priamy prístup k jadru Linuxu a zariadeniam pripojeným k systému. Na vyriešenie tohto problému som našiel [návod](https://iz6.ru/semka-video-s-vebkamery-s-pomoshhju-opencv-v-wsl2/), ktorý popisuje, ako nainštalovať správnu verziu jadra, a tento návod mi pomohol odstrániť ťažkosti. Hlavná vec, ktorú treba vedieť, je, že v súbore `.wslconfig` je potrebné nastaviť minimálne 4 GB operačnej pamäte alebo viac, pretože táto verzia vyžaduje značné množstvo pamäte. Tu je príklad konfigurácie pre súbor `.wslconfig`:
 
     ```
     [wsl2]
@@ -100,7 +100,12 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     Bohužiaľ, oba balíčky na zapnutie kamery nefungujú správne a pri ich spustení sa objavujú chyby, ktorých riešenie si vyžaduje veľa času. Ako alternatívu sme sa rozhodli prejsť na používanie virtuálnehо stroja, pretože ten podporuje plnohodnotné ovládače, čo rieši tento problém.
 
 ### Virtual Box 
-1. 
+1. ...
+2. ...
+
+### Docker
+1. ddf
+2. 
 
 
 ## AprilTag Detector
