@@ -48,7 +48,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    ```
    Tento príkaz zobrazí zoznam nainštalovaných distribúcií a ich verzie.
 
-7. **Inštalácia ROS2 Humble**: Otvorte terminál WSL, ktorý sa objaví v ponuke «Štart» (alebo jednoducho zadajte «wsl» do vyhľadávania Windows). Potom nainštalujte metaooperačný systém ROS2 Humble podľa pokynov v oficiálnej dokumentácii na inštaláciu.
+7. **Inštalácia ROS2 Humble**: Otvorte terminál WSL, ktorý sa objaví v ponuke «Štart» (alebo jednoducho zadajte «wsl» do vyhľadávania Windows). Potom nainštalujte metaooperačný systém ROS2 Humble podľa pokynov v oficiálnej [dokumentácii](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html) na inštaláciu. 
 8. **Vytvorenie pracovného priestoru**: Pre vytvorenie pracovného priestoru v ROS2 postupujte nasledovne. Vytvorte nový adresár pre pracovný priestor, napríklad `perception_ws`, a prejdite doň:
    ```bash
    mkdir -p ~/perception_ws/src
@@ -68,7 +68,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    ```bash
    sudo apt install ros-humble-camera-calibration
    ```
-   Takisto na zapnutie kamery a zabezpečenie kompatibility s ROS2 je potrebné nainštalovať jeden z ovládačov, ako napríklad [usb_cam](https://index.ros.org/r/usb_cam/#galactic) alebo [opencv_cam](https://index.ros.org/r/usb_cam/#galactic). 
+   Takisto na zapnutie kamery a zabezpečenie kompatibility s ROS2 je potrebné nainštalovať jeden z ovládačov, ako napríklad [usb_cam](https://github.com/ros-drivers/usb_cam) alebo [opencv_cam](https://github.com/clydemcqueen/opencv_cam). 
 10. **Problém**: Pri pokuse o zapnutie kamery cez balíky `usb_cam` alebo `opencv_cam` sa objavil problém, ktorý spočíval v potrebe nainštalovať novú verziu jadra Linuxu, pretože WSL neposkytuje priamy prístup k jadru Linuxu a zariadeniam pripojeným k systému. Na vyriešenie tohto problému som našiel [návod](https://iz6.ru/semka-video-s-vebkamery-s-pomoshhju-opencv-v-wsl2/), ktorý popisuje, ako nainštalovať správnu verziu jadra, a tento návod mi pomohol odstrániť ťažkosti. Hlavná vec, ktorú treba vedieť, je, že v súbore `.wslconfig` je potrebné nastaviť minimálne 4 GB operačnej pamäte alebo viac, pretože táto verzia vyžaduje značné množstvo pamäte. Tu je príklad konfigurácie pre súbor `.wslconfig`:
 
     ```
@@ -112,6 +112,33 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     - Vytvorte používateľa a nastavte heslo.
     - Po dokončení inštalácie vás systém vyzve na reštartovanie virtuálneho stroja.
 5. **Inštalácia rozšírení**: Na pripojenie kamery k virtuálnemu stroju je potrebné stiahnuť príslušný balík rozšírení pre VirtualBox (Extension Pack). Najskôr si ho stiahnite z [oficiálnej stránky](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html) a potom nainštalujte podľa pokynov. Po inštalácii budete môcť vo virtuálnom stroji v záložke **Devices (Zariadenia)** vybrať a používať vstavanú kameru. ([Tutorial](https://www.youtube.com/watch?v=uQNKTNv6ETw&t=182s))
+6. **Inštalácia ROS2 Humble**: Otvorte terminál v Ubuntu spustenom na virtuálnom stroji a postupujte podľa pokynov oficiálnej [dokumentácie na inštaláciu ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). Po inštalácii sa uistite, že všetky potrebné závislosti sú nainštalované. To zahŕňa Python, pip a ďalšie balíky pre správnu funkčnosť ROS2. Napríklad, spustite nasledujúce príkazy pre inštaláciu základných nástrojov:
+
+    ```bash
+    sudo apt update
+    sudo apt install python3-pip python3-colcon-common-extensions build-essential
+    ```
+
+    Tieto balíky budú potrebné na zostavenie a testovanie ROS2 projektov. Po inštalácii sa odporúča reštartovať systém a overiť funkčnosť ROS2 pomocou príkazu:
+
+    ```bash
+    ros2 --version
+    ```
+7. **Vytvorenie pracovného priestoru**: Pre vytvorenie pracovného priestoru v ROS2 postupujte nasledovne. Vytvorte nový adresár pre pracovný priestor, napríklad `perception_ws`, a prejdite doň:
+   ```bash
+   mkdir -p ~/perception_ws/src
+   cd ~/perception_ws/src
+   ```
+   Potom vykonajte príkaz na inicializáciu pracovného priestoru:
+   ```bash
+   colcon build
+   ```
+   Následne je potrebné aktivovať pracovný priestor:
+   ```bash
+   source ~/perception_ws/install/setup.bash
+   ```
+   Teraz môžete pridávať balíky do adresára `src` a kompilovať ich pomocou príkazu `colcon build`.
+8. **Inštalácia balíkov:** V tomto kroku môžeme nainštalovať potrebné balíky, konkrétne [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector/README.md) a [Apriltag_ROS](https://github.com/christianrauch/apriltag_ros), ktoré budú podrobne rozobrané v nasledujúcich kapitolách. A samozrejme, je potrebné nainštalovať aj sprievodné balíky, ktoré sú nevyhnutné pre prácu s balíkom Apriltag, napríklad [usb_cam](https://github.com/ros-drivers/usb_cam) alebo [ros2_video_streamer](https://github.com/klintan/ros2_video_streamer).
 
 ### Docker
 1. ddf
