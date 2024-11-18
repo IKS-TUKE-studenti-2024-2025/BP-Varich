@@ -100,8 +100,17 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     Bohužiaľ, oba balíčky na zapnutie kamery nefungujú správne a pri ich spustení sa objavujú chyby, ktorých riešenie si vyžaduje veľa času. Ako alternatívu sme sa rozhodli prejsť na používanie virtuálnehо stroja, pretože ten podporuje plnohodnotné ovládače, čo rieši tento problém.
 
 ### Virtual Box 
-1. ...
-2. ...
+1. **Inštalácia VirtualBox**: Najprv si stiahnite najnovšiu verziu [VirtualBox](https://www.virtualbox.org/wiki/Downloads) z oficiálnej webovej stránky, pričom vyberte verziu pre váš operačný systém. Po stiahnutí spustite inštalačný súbor a postupujte podľa pokynov na obrazovke. Po dokončení inštalácie otvorte VirtualBox. Zobrazí sa okno s rozhraním programu.
+
+2. **Stiahnutie a inštalácia Ubuntu 22.04**: Prejdite na oficiálnu stránku [Ubuntu](https://ubuntu.com/download/desktop) a stiahnite si ISO obraz verzie Ubuntu 22.04 LTS (Jammy Jellyfish).
+
+3. **Vytvorenie virtuálneho stroja**: Otvorte VirtualBox a kliknite na **New**. Zadajte názov virtuálneho stroja, napríklad **Linux**. Následne vyberte typ operačného systému **Linux** a verziu **Ubuntu (64-bit)**. Pridajte stiahnutý ISO obraz. Nastavte veľkosť pamäte, napríklad 4-8 GB (odporúča sa minimálne 4 GB). Vytvorte nový virtuálny pevný disk, zvoľte typ **VDI (VirtualBox Disk Image)** a formát **Dynamically allocated**. Nastavte veľkosť disku, napríklad 20-30 GB.
+
+4. **Inštalácia Ubuntu**: Po vytvorení virtuálneho stroja ho vyberte a kliknite na **Start**. Spustí sa inštalačný proces Ubuntu. Postupujte podľa pokynov na obrazovke:
+    - Vyberte jazyk inštalácie.
+    - Nastavte rozloženie klávesnice.
+    - Vytvorte používateľa a nastavte heslo.
+    - Po dokončení inštalácie vás systém vyzve na reštartovanie virtuálneho stroja.
 
 ### Docker
 1. ddf
