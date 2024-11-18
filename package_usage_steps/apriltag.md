@@ -111,6 +111,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     - Nastavte rozloženie klávesnice.
     - Vytvorte používateľa a nastavte heslo.
     - Po dokončení inštalácie vás systém vyzve na reštartovanie virtuálneho stroja.
+5. **Inštalácia rozšírení**: Na pripojenie kamery k virtuálnemu stroju je potrebné stiahnuť príslušný balík rozšírení pre VirtualBox (Extension Pack). Najskôr si ho stiahnite z [oficiálnej stránky](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html) a potom nainštalujte podľa pokynov. Po inštalácii budete môcť vo virtuálnom stroji v záložke **Devices (Zariadenia)** vybrať a používať vstavanú kameru. ([Tutorial](https://www.youtube.com/watch?v=uQNKTNv6ETw&t=182s))
 
 ### Docker
 1. ddf
