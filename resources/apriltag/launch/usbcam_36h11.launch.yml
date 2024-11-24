@@ -1,0 +1,50 @@
+launch:
+- arg:
+    name: device
+    default: "/dev/video0"
+
+- node_container:
+    pkg: rclcpp_components
+    exec: component_container
+    name: apriltag_container
+    namespace: ""
+
+    composable_node:
+    - pkg: usb_cam
+      plugin: usb_cam::UsbCamNode
+      name: usb_camera
+      namespace: usb_cam
+      param:
+      - name: video_device
+        value: $(var device)
+      - name: pixel_format
+        value: "mjpeg2rgb"
+      - name: camera_info_url
+        value: "file:///home/dvar1ch/perception_ws/calibration_data/ost.yaml"
+      - name: image_transport
+        value: "compressed"
+      remap:
+      - from: /image_raw
+        to: /usb_cam/image_raw
+
+    - pkg: image_proc
+      plugin: image_proc::RectifyNode
+      name: rectify
+      namespace: usb_cam
+      remap:
+      - from: image
+        to: image_raw
+      - from: camera_info
+        to: /usb_cam/camera_info
+
+    - pkg: apriltag_ros
+      plugin: AprilTagNode
+      name: apriltag
+      namespace: apriltag
+      remap:
+      - from: image_rect
+        to: /usb_cam/image_raw
+      - from: camera_info
+        to: /usb_cam/camera_info
+      param:
+      - from: $(find-pkg-share apriltag_ros)/cfg/tags_36h11.yaml
