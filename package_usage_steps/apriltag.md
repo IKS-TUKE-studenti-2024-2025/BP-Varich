@@ -175,4 +175,5 @@ https://github.com/user-attachments/assets/6754d298-5c5f-4afd-a693-d837e96173bb
 4. [Ubuntu 22.04](https://releases.ubuntu.com/jammy/)
 5. [Online/Offline Camera Calibration in ROS 2](https://medium.com/starschema-blog/offline-camera-calibration-in-ros-2-45e81df12555#:~:text=Follow%20this%20this%20step-by-step%20guide%20to%20learn%20how,camera%20for%20computer%20vision%20applications%20in%20ROS%202)
 6. [How to give VM Ubuntu access to host machine integrated camera (Youtube)](https://www.youtube.com/watch?v=uQNKTNv6ETw&t=182s)
+7. [Setting Up ROS2 in Docker: A Step-by-Step Guide](https://medium.com/@apskanda/setting-up-ros2-in-docker-a-step-by-step-guide-3e02ad2669e7)
 
