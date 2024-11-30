@@ -252,7 +252,32 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     5. **Spustenie grafických aplikácií:**  
        - Po nastavení môžete spustiť aplikácie s grafickým rozhraním, ako napríklad: `RViz`, `rqt_graph`, `rqt_image_view`.
 
-       > **Poznámka:** Uistite sa, že váš firewall alebo antivírusový softvér neblokuje spojenie medzi X-Serverom a WSL. 
+       > **Poznámka:** Uistite sa, že váš firewall alebo antivírusový softvér neblokuje spojenie medzi X-Serverom a WSL.
+9. **Odoslanie kontajnera na Docker Hub:**
+
+    1. Otvorte terminál WSL a prihláste sa do Dockeru pomocou príkazu:
+
+       ```bash
+       docker login
+       ```
+
+    2. Po prihlásení sa vám zobrazí výzva na otvorenie webovej stránky Docker Hub, kde zadáte heslo, ktoré sa zobrazí v termináli, aby ste sa úspešne prihlásili.
+
+    3. Po úspešnej autentifikácii označte kontajner príkazom:
+
+       ```bash
+       sudo docker tag <názov_kontajnera> <meno_používateľa>/<názov_repozitára>:<verzia>
+       ```
+
+       Nahraďte `<názov_kontajnera>`, `<meno_používateľa>`, `<názov_repozitára>` a `<verzia>` príslušnými hodnotami.
+
+    4. Potom odošlite kontajner na Docker Hub server pomocou príkazu:
+
+       ```bash
+       sudo docker push <meno_používateľa>/<názov_repozitára>:<verzia>
+       ```
+10. dsdds
+11. Commands
 
 ## AprilTag Detector
 ...
