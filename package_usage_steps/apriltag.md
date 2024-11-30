@@ -144,15 +144,15 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 1. **Inštalácia Dockeru:** Na prácu s ROS 2 v prostredí Docker je potrebné najskôr nainštalovať Docker. Stiahnite si inštalačné súbory z oficiálnej stránky Docker.
    > **Poznámka:** Ak pracujete na Windows, budete potrebovať nainštalovať aj WSL (Windows Subsystem for Linux) a Ubuntu, podľa inštrukcií v časti venovanej WSL.  
 
-3. **Inštalácia ROS 2 v Dockeri:** Ak chcete stiahnuť Docker image a použiť kontajner s ROS 2 Humble, postupujte podľa podrobných krokov uvedených v inštrukciách. Nájdete tam podrobný návod na konfiguráciu a spustenie kontajnera.  
+2. **Inštalácia ROS 2 v Dockeri:** Ak chcete stiahnuť Docker image a použiť kontajner s ROS 2 Humble, postupujte podľa podrobných krokov uvedených v inštrukciách. Nájdete tam podrobný návod na konfiguráciu a spustenie kontajnera.  
 
-4. **Spustenie kontajnera:** Na spustenie kontajnera použite nasledujúci príkaz:  
+3. **Spustenie kontajnera:** Na spustenie kontajnera použite nasledujúci príkaz:  
    ```bash
    docker start -ai <názov_kontajnera>
    ```  
    Kde **<názov_kontajnera>** je názov kontajnera, ktorý ste zadali pri jeho vytváraní.  
 
-5. **Inštalácia potrebných nástrojov pre prácu:** Po vstupe do kontajnera sa uistite, že máte nainštalované všetky potrebné nástroje a knižnice. Vykonajte nasledujúce príkazy na inštaláciu základných závislostí:  
+4. **Inštalácia potrebných nástrojov pre prácu:** Po vstupe do kontajnera sa uistite, že máte nainštalované všetky potrebné nástroje a knižnice. Vykonajte nasledujúce príkazy na inštaláciu základných závislostí:  
    ```bash
    # Aktualizácia zoznamu balíkov
    apt-get update  
@@ -169,11 +169,14 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
    apt install ros-humble-rviz2  
    apt install ros-humble-rqt-image-view  
 
+   # Inštalácia pre prácu s obrazovými dátami
+   apt install ros-humble-image-pipeline
+
    # Inštalácia knižnice pre prácu s AprilTag
    apt install libapriltag-dev -y  
    ```  
 
-6. **Vytvorenie pracovného priestoru:** Vytvorte pracovný priestor pre balíky ROS 2 a potom nainštalujte potrebné balíky pre prácu s AprilTag. Vykonajte nasledujúce príkazy:  
+5. **Vytvorenie pracovného priestoru:** Vytvorte pracovný priestor pre balíky ROS 2 a potom nainštalujte potrebné balíky pre prácu s AprilTag. Vykonajte nasledujúce príkazy:  
    ```bash
    # Vytvorenie pracovného priestoru pre ROS 2
    mkdir -p ~/ros2_ws/src  
@@ -187,8 +190,69 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 
    # Klonovanie repozitára pre ROS 2 Shared (závislosť pre opencv_cam)
    git clone https://github.com/ptrmu/ros2_shared.git  
-   ```  
+   ```
+6. **Skompilovanie pracovného prostredia:** Po nainštalovaní potrebných balíkov vykonajte nasledujúce kroky na prípravu pracovného prostredia a jeho kompiláciu.
 
+    ```bash
+    # Načítajte nastavenia ROS 2
+    source /opt/ros/$ROS_DISTRO/setup.bash  
+
+    # Prejdite do vytvoreného pracovného priestoru
+    cd ~/ros2_ws  
+
+    # Nainštalujte závislosti pre balíky
+    rosdep install --from-paths src --ignore-src -r -y  
+
+    # Vykonajte kompiláciu všetkých balíkov
+    colcon build  
+
+    # Pridajte pracovný priestor do konfiguračného súboru pre automatické načítanie
+    echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc  
+
+    # Uplatnite zmeny
+    source ~/.bashrc  
+    ```
+
+7. **Prenos súborov do kontajnera:** Ak je potrebné preniesť súbory, napríklad video na testovanie balíka **apriltag** alebo údaje na kalibráciu kamery, použite nasledujúci príkaz:  
+
+    ```bash
+    sudo docker cp <lokálna_cesta_k_súboru> <názov_kontajnera>:<cesta_v_kontajneri>
+    ```  
+
+    Kde:  
+    - `<lokálna_cesta_k_súboru>` je cesta k súboru na vašom počítači.  
+    - `<názov_kontajnera>` je názov bežiaceho kontajnera.  
+    - `<cesta_v_kontajneri>` je miesto, kam sa súbor v kontajneri uloží.
+      
+8. **Pripojenie X-Servera na zobrazenie grafického rozhrania:** Na zobrazenie grafického rozhrania (napríklad RViz, rqt_graph, rqt_image_view) v kontajneri Docker je potrebné nastaviť X-Server. Tu je podrobný postup:  
+
+    1. **Stiahnutie a inštalácia X-Servera:**  
+       - Stiahnite si X-Server z oficiálnej stránky (napríklad Xming alebo VcXsrv pre Windows).  
+       - Nainštalujte X-Server podľa pokynov inštalátora.  
+
+    2. **Spustenie X-Servera:**  
+       - Po inštalácii otvorte X-Server.  
+       - Ak používate VcXsrv, vyberte nasledujúce možnosti:  
+         - „Multiple windows“ (Viaceré okná).  
+         - Zapnite možnosť „Disable access control“ (Zakázať kontrolu prístupu).  
+       - Kliknite na tlačidlo „Start“ (Spustiť), aby ste aktivovali server.  
+
+    3. **Nastavenie WSL:**  
+       - V termináli WSL vykonajte príkaz na nastavenie displeja:  
+         ```bash
+         export DISPLAY=:0
+         ```  
+    
+    4. **Nastavenie v rámci Docker kontajnera:**  
+       - V kontajneri Docker spustite nasledujúci príkaz na povolenie prístupu k X-Serveru:  
+         ```bash
+         xhost +local:docker
+         ```  
+
+    5. **Spustenie grafických aplikácií:**  
+       - Po nastavení môžete spustiť aplikácie s grafickým rozhraním, ako napríklad: `RViz`, `rqt_graph`, `rqt_image_view`.
+
+       > **Poznámka:** Uistite sa, že váš firewall alebo antivírusový softvér neblokuje spojenie medzi X-Serverom a WSL. 
 
 ## AprilTag Detector
 ...
