@@ -141,8 +141,53 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 8. **Inštalácia balíkov:** V tomto kroku môžeme nainštalovať potrebné balíky, konkrétne [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector/README.md) a [Apriltag_ROS](https://github.com/christianrauch/apriltag_ros), ktoré budú podrobne rozobrané v nasledujúcich kapitolách. A samozrejme, je potrebné nainštalovať aj sprievodné balíky, ktoré sú nevyhnutné pre prácu s balíkom Apriltag, napríklad [usb_cam](https://github.com/ros-drivers/usb_cam) alebo [ros2_video_streamer](https://github.com/klintan/ros2_video_streamer).
 
 ### Docker
-1. ddf
-2. 
+1. **Inštalácia Dockeru:** Na prácu s ROS 2 v prostredí Docker je potrebné najskôr nainštalovať Docker. Stiahnite si inštalačné súbory z oficiálnej stránky Docker.
+   > **Poznámka:** Ak pracujete na Windows, budete potrebovať nainštalovať aj WSL (Windows Subsystem for Linux) a Ubuntu, podľa inštrukcií v časti venovanej WSL.  
+
+3. **Inštalácia ROS 2 v Dockeri:** Ak chcete stiahnuť Docker image a použiť kontajner s ROS 2 Humble, postupujte podľa podrobných krokov uvedených v inštrukciách. Nájdete tam podrobný návod na konfiguráciu a spustenie kontajnera.  
+
+4. **Spustenie kontajnera:** Na spustenie kontajnera použite nasledujúci príkaz:  
+   ```bash
+   docker start -ai <názov_kontajnera>
+   ```  
+   Kde **<názov_kontajnera>** je názov kontajnera, ktorý ste zadali pri jeho vytváraní.  
+
+5. **Inštalácia potrebných nástrojov pre prácu:** Po vstupe do kontajnera sa uistite, že máte nainštalované všetky potrebné nástroje a knižnice. Vykonajte nasledujúce príkazy na inštaláciu základných závislostí:  
+   ```bash
+   # Aktualizácia zoznamu balíkov
+   apt-get update  
+
+   # Inštalácia rosdep na správu závislostí
+   apt install python3-rosdep -y  
+
+   # Inicializácia rosdep
+   rosdep init  
+   rosdep update  
+
+   # Inštalácia nástrojov na vizualizáciu a ladenie
+   apt install ros-humble-rqt-graph  
+   apt install ros-humble-rviz2  
+   apt install ros-humble-rqt-image-view  
+
+   # Inštalácia knižnice pre prácu s AprilTag
+   apt install libapriltag-dev -y  
+   ```  
+
+6. **Vytvorenie pracovného priestoru:** Vytvorte pracovný priestor pre balíky ROS 2 a potom nainštalujte potrebné balíky pre prácu s AprilTag. Vykonajte nasledujúce príkazy:  
+   ```bash
+   # Vytvorenie pracovného priestoru pre ROS 2
+   mkdir -p ~/ros2_ws/src  
+   cd ~/ros2_ws/src  
+
+   # Klonovanie repozitára pre AprilTag ROS
+   git clone https://github.com/christianrauch/apriltag_ros.git  
+
+   # Klonovanie repozitára pre OpenCV Camera
+   git clone https://github.com/clydemcqueen/opencv_cam.git  
+
+   # Klonovanie repozitára pre ROS 2 Shared (závislosť pre opencv_cam)
+   git clone https://github.com/ptrmu/ros2_shared.git  
+   ```  
 
 
 ## AprilTag Detector
