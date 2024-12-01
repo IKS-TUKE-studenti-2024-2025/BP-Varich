@@ -255,15 +255,17 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
          > **Poznámka:** Uistite sa, že váš firewall alebo antivírusový softvér neblokuje spojenie medzi X-Serverom a WSL.
 9. **Odoslanie kontajnera na Docker Hub:**
 
-    1. Otvorte terminál WSL a prihláste sa do Dockeru pomocou príkazu:
+    1. 
+
+    2. Otvorte terminál WSL a prihláste sa do Dockeru pomocou príkazu:
 
        ```bash
        docker login
        ```
 
-    2. Po prihlásení sa vám zobrazí výzva na otvorenie webovej stránky Docker Hub, kde zadáte heslo, ktoré sa zobrazí v termináli, aby ste sa úspešne prihlásili.
+    3. Po prihlásení sa vám zobrazí výzva na otvorenie webovej stránky Docker Hub, kde zadáte heslo, ktoré sa zobrazí v termináli, aby ste sa úspešne prihlásili.
 
-    3. Po úspešnej autentifikácii označte kontajner príkazom:
+    4. Po úspešnej autentifikácii označte kontajner príkazom:
 
        ```bash
        sudo docker tag <názov_kontajnera> <meno_používateľa>/<názov_repozitára>:<verzia>
@@ -271,12 +273,41 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 
        Nahraďte `<názov_kontajnera>`, `<meno_používateľa>`, `<názov_repozitára>` a `<verzia>` príslušnými hodnotami.
 
-    4. Potom odošlite kontajner na Docker Hub server pomocou príkazu:
+    5. Potom odošlite kontajner na Docker Hub server pomocou príkazu:
 
        ```bash
        sudo docker push <meno_používateľa>/<názov_repozitára>:<verzia>
        ```
-10. dsdds
+10. **Stiahnutie Docker kontajnera z Docker Hub**: Ak chcete stiahnuť predtým odoslaný kontajner z Docker Hub, napríklad pre jeho použitie na inom zariadení alebo serveri, postupujte podľa týchto krokov.
+
+    1. **Prihláste sa do svojho účtu na Docker Hub:**  
+       Ak ešte nemáte účet, zaregistrujte sa na [oficiálnej stránke Docker Hub](https://hub.docker.com).  
+
+    2. **Prihláste sa do Dockeru cez terminál:**  
+       Otvorte terminál a zadajte príkaz:  
+       ```bash
+       docker login
+       ```  
+       Budete musieť zadať svoje prihlasovacie meno a heslo k účtu Docker Hub.  
+
+    3. **Stiahnite kontajner:**  
+       Pre stiahnutie kontajnera použite nasledujúci príkaz:  
+       ```bash
+       docker pull yourusername/ros2projects:latest
+       ```  
+       Kde:  
+       - `yourusername` — vaše prihlasovacie meno na Docker Hub.  
+       - `ros2projects` — názov kontajnera.  
+       - `latest` — verzia označená tagom (môžete uviesť iný tag, ak potrebujete konkrétnu verziu).  
+
+    4. **Spustite kontajner:**  
+       Po úspešnom stiahnutí kontajnera spustite tento príkaz:  
+       ```bash
+       docker run -it yourusername/ros2projects:latest
+       ```  
+       Kontajner sa spustí a môžete začať pracovať v jeho prostredí.  
+
+    > **Poznámka:** Uistite sa, že Docker je nainštalovaný na vašom zariadení a že všetky sieťové a prístupové nastavenia sú správne nakonfigurované pre prácu s Docker Hub.
 11. Commands
 
 ## AprilTag Detector
