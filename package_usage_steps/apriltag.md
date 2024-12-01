@@ -144,7 +144,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 1. **Inštalácia Dockeru:** Na prácu s ROS 2 v prostredí Docker je potrebné najskôr nainštalovať Docker. Stiahnite si inštalačné súbory z oficiálnej stránky Docker.
    > **Poznámka:** Ak pracujete na Windows, budete potrebovať nainštalovať aj WSL (Windows Subsystem for Linux) a Ubuntu, podľa inštrukcií v časti venovanej WSL.  
 
-2. **Inštalácia ROS 2 v Dockeri:** Ak chcete stiahnuť Docker image a použiť kontajner s ROS 2 Humble, postupujte podľa podrobných krokov uvedených v inštrukciách. Nájdete tam podrobný návod na konfiguráciu a spustenie kontajnera.  
+2. **Inštalácia ROS 2 v Dockeri:** Ak chcete stiahnuť Docker image a použiť kontajner s ROS 2 Humble, vykonajte podrobné kroky, ako je uvedené v tomto [návode](https://medium.com/@apskanda/setting-up-ros2-in-docker-a-step-by-step-guide-3e02ad2669e7). Nájdete tam podrobný návod na konfiguráciu a spustenie kontajnera.  
 
 3. **Spustenie kontajnera:** Na spustenie kontajnera použite nasledujúci príkaz:  
    ```bash
@@ -224,10 +224,10 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     - `<názov_kontajnera>` je názov bežiaceho kontajnera.  
     - `<cesta_v_kontajneri>` je miesto, kam sa súbor v kontajneri uloží.
       
-8. **Pripojenie X-Servera na zobrazenie grafického rozhrania:** Na zobrazenie grafického rozhrania (napríklad RViz, rqt_graph, rqt_image_view) v kontajneri Docker je potrebné nastaviť X-Server. Tu je podrobný postup:  
+8. **Pripojenie X-Servera na zobrazenie grafického rozhrania:** Na zobrazenie grafického rozhrania (napríklad RViz, rqt_graph, rqt_image_view) v kontajneri Docker je potrebné nastaviť [X-Server](https://sourceforge.net/projects/vcxsrv/). Tu je podrobný postup:  
 
     1. **Stiahnutie a inštalácia X-Servera:**  
-       - Stiahnite si X-Server z oficiálnej stránky (napríklad Xming alebo VcXsrv pre Windows).  
+       - Stiahnite si X-Server z [oficiálnej stránky](https://sourceforge.net/projects/vcxsrv/) (napríklad Xming alebo VcXsrv pre Windows).  
        - Nainštalujte X-Server podľa pokynov inštalátora.  
 
     2. **Spustenie X-Servera:**  
@@ -252,7 +252,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     5. **Spustenie grafických aplikácií:**  
        - Po nastavení môžete spustiť aplikácie s grafickým rozhraním, ako napríklad: `RViz`, `rqt_graph`, `rqt_image_view`.
 
-       > **Poznámka:** Uistite sa, že váš firewall alebo antivírusový softvér neblokuje spojenie medzi X-Serverom a WSL.
+         > **Poznámka:** Uistite sa, že váš firewall alebo antivírusový softvér neblokuje spojenie medzi X-Serverom a WSL.
 9. **Odoslanie kontajnera na Docker Hub:**
 
     1. Otvorte terminál WSL a prihláste sa do Dockeru pomocou príkazu:
