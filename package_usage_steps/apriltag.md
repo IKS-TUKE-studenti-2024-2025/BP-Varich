@@ -255,7 +255,8 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
          > **Poznámka:** Uistite sa, že váš firewall alebo antivírusový softvér neblokuje spojenie medzi X-Serverom a WSL.
 9. **Odoslanie kontajnera na Docker Hub:**
 
-    1. 
+    1. **Prihláste sa do svojho účtu na Docker Hub:**  
+       Ak ešte nemáte účet, zaregistrujte sa na [oficiálnej stránke Docker Hub](https://hub.docker.com).   
 
     2. Otvorte terminál WSL a prihláste sa do Dockeru pomocou príkazu:
 
@@ -308,7 +309,58 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
        Kontajner sa spustí a môžete začať pracovať v jeho prostredí.  
 
     > **Poznámka:** Uistite sa, že Docker je nainštalovaný na vašom zariadení a že všetky sieťové a prístupové nastavenia sú správne nakonfigurované pre prácu s Docker Hub.
-11. Commands
+
+11. **Populárne príkazy na prácu s Dockerom**: Pre jednoduchú správu kontajnerov a obrazov v Dockeri môžete použiť nasledujúce príkazy. 
+
+    Zobrazenie spustených kontajnerov:  
+    ```bash
+    docker ps
+    ```  
+
+    Zobrazenie všetkých kontajnerov, vrátane zastavených:  
+    ```bash
+    docker ps -a
+    ```  
+
+    Odstránenie kontajnera podľa jeho identifikátora alebo názvu:  
+    ```bash
+    docker rm <container_id_or_name>
+    ```  
+
+    Vyčistenie zastavených kontajnerov:  
+    ```bash
+    docker container prune
+    ```  
+
+    Ukončenie práce v kontajneri:  
+    ```bash
+    exit
+    ```  
+
+    Pripojenie k bežiacemu kontajneru:
+    ```bash
+    docker exec -it <container_id_or_name> bash
+    ```  
+
+    Spustenie zastaveného kontajnera:  
+    ```bash
+    docker start -ai <container_id_or_name>
+    ```  
+
+    Zobrazenie všetkých dostupných Docker obrazov:
+    ```bash
+    docker images
+    ```  
+
+    Odstránenie Docker obrazu: 
+    ```bash
+    docker rmi <image_id_or_name>
+    ```  
+   
+    Spustenie kontajnera s konkrétnymi parametrami:
+    ```bash
+    docker run -it --name <container_name> <image_name>
+    ```  
 
 ## AprilTag Detector
 ...
