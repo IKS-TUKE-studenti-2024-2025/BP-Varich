@@ -97,7 +97,7 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     ros2 run opencv_cam opencv_cam_main
     ```
 
-    Bohužiaľ, oba balíčky na zapnutie kamery nefungujú správne a pri ich spustení sa objavujú chyby, ktorých riešenie si vyžaduje veľa času. Ako alternatívu sme sa rozhodli prejsť na používanie virtuálnehо stroja, pretože ten podporuje plnohodnotné ovládače, čo rieši tento problém.
+    > Bohužiaľ, oba balíčky na zapnutie kamery nefungujú správne a pri ich spustení sa objavujú chyby, ktorých riešenie si vyžaduje veľa času. Ako alternatívu sme sa rozhodli prejsť na používanie virtuálnehо stroja, pretože ten podporuje plnohodnotné ovládače, čo rieši tento problém.
 
 ### Virtual Box 
 1. **Inštalácia VirtualBox**: Najprv si stiahnite najnovšiu verziu [VirtualBox](https://www.virtualbox.org/wiki/Downloads) z oficiálnej webovej stránky, pričom vyberte verziu pre váš operačný systém. Po stiahnutí spustite inštalačný súbor a postupujte podľa pokynov na obrazovke. Po dokončení inštalácie otvorte VirtualBox. Zobrazí sa okno s rozhraním programu.
