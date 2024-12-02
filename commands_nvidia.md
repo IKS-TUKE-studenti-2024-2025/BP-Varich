@@ -112,3 +112,9 @@ sudo apt-get install -y ros-humble-isaac-ros-apriltag
 ```
 sudo apt-get install -y ros-humble-isaac-ros-examples
 ```
+
+---
+
+# Sources:
+1. [Developer Environment Setup](https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html)
+2. [AprilTag NVIDIA ISAAC ROS ](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag/index.html#quickstart)
