@@ -1,4 +1,4 @@
-## Installing NVIDIA Container Toolkit with Apt:
+## 1️⃣ Installing NVIDIA Container Toolkit with Apt:
 
 1. Configure the production repository:
 ```
@@ -38,7 +38,7 @@ systemctl --user restart docker
 sudo nvidia-ctk config --set nvidia-container-cli.no-cgroups --in-place
 ```
 
-## Developer Environment Setup:
+## 2️⃣ Developer Environment Setup:
 9. Restart Docker: 
 ```
 sudo systemctl daemon-reload && sudo systemctl restart docker
@@ -55,7 +55,7 @@ echo "export ISAAC_ROS_WS=${HOME}/workspaces/isaac_ros-dev/" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## Installation Isaac AprilTag:
+## 3️⃣ Installation Isaac AprilTag:
 12. Clone `isaac_ros_common` under `${ISAAC_ROS_WS}/src`.
 ```
 cd ${ISAAC_ROS_WS}/src && \
@@ -115,6 +115,6 @@ sudo apt-get install -y ros-humble-isaac-ros-examples
 
 ---
 
-# Sources:
+#  🔗Sources:
 1. [Developer Environment Setup](https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html)
 2. [AprilTag NVIDIA ISAAC ROS ](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/isaac_ros_apriltag/index.html#quickstart)
