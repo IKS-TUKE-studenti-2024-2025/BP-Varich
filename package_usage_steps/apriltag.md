@@ -428,7 +428,8 @@ Balík **[Apriltag Detector](https://github.com/ros-misc-utilities/apriltag_dete
 
 
 ### Graphical Representation
-....
+V tejto grafickej reprezentácii je zobrazená schéma interakcie uzlov a tém, ktoré používajú balíky `apriltag_detector` a `ros2_video_streamer`. Na obrázku je zobrazené, ako sa údaje prenášajú medzi rôznymi komponentami systému, vrátane kontajnerov a kamier. Uzly, ako `/april_tag_detector_container` a `/camera_simulator`, komunikujú s témami, ako `/image/camera_info` a `/image/image_raw`. Následne sa údaje prenášajú do tém súvisiacich s spracovaním obrázkov, ako `/image/apriltag_detector_umich`, `/image/apriltag_draw` a ďalšie. Tieto uzly a témy spolupracujú na spracovaní a analýze obrázkov, čím zabezpečujú efektívnu komunikáciu medzi komponentami systému. Vďaka tejto štruktúre sa údaje spracovávajú a zobrazujú v rôznych formátoch, napríklad ako obrázky s detegovanými značkami AprilTag.
+
 ![apriltag_detector_rosgraph](https://github.com/user-attachments/assets/293b4aa4-181c-4020-82c8-840eb3c40b6a)
 
 ### Summary
