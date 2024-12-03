@@ -369,8 +369,6 @@ Balík **[Apriltag Detector](https://github.com/ros-misc-utilities/apriltag_dete
 - [apriltag_umich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md): Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Univerzity v Michigane ([UMich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md)).  
 - [apriltag_mit](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md): Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Massachusettského technologického inštitútu ([MIT](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md)).  
 
-**Github Repo:** [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector)
-
 ### Usage
 1. Najskôr je potrebné naklonovať repozitár **Apriltag Detector** do pracovného priestoru, v našom prípade `perception_ws`, do priečinka `perception_ws/src` pomocou príkazu:  
    ```bash
