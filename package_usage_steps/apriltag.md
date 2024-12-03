@@ -365,9 +365,9 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
 ## AprilTag Detector
 Balík **[Apriltag Detector](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector/README.md)** je určený na detekciu a vizualizáciu Apriltagov. Tento repozitár vykonáva len úlohy súvisiace s vnímaním a neobsahuje odhady polohy kamery. Zvyčajne sa používa v prípadoch, keď nie je dostupná kalibrácia kamery alebo nie je potrebná. Balík **Apriltag Detector** zahŕňa prístup k nasledujúcim komponentom:  
 
-- **[apriltag_draw](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_draw/README.md)**: Modul na vizualizáciu detegovaných Apriltagov na obrázkoch.  
-- **[apriltag_umich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md)**: Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Univerzity v Michigane ([UMich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md)).  
-- **[apriltag_mit](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md)**: Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Massachusettského technologického inštitútu ([MIT](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md)).  
+- [apriltag_draw](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_draw/README.md): Modul na vizualizáciu detegovaných Apriltagov na obrázkoch.  
+- [apriltag_umich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md): Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Univerzity v Michigane ([UMich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md)).  
+- [apriltag_mit](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md): Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Massachusettského technologického inštitútu ([MIT](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md)).  
 
 **Github Repo:** [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector)
 
@@ -433,7 +433,7 @@ V tejto grafickej reprezentácii je zobrazená schéma interakcie uzlov a tém, 
 ![apriltag_detector_rosgraph](https://github.com/user-attachments/assets/293b4aa4-181c-4020-82c8-840eb3c40b6a)
 
 ### Summary
-Bolo to prvé úspešné použitie balíka **AprilTag Detector** na virtuálnom stroji. Nielenže sme sa naučili tento balík spustiť, ale aj odosielať ako dáta video, ktoré sme sami nahrali. Dokázali sme vidieť fungujúci graf uzlov a vyhodnotiť efektívnosť práce balíka pomocou metrík, ako sú `frekvencia` publikácie správ a `latencia` (oneskorenie). Avšak, aby sme mohli overiť prácu balíka [AprilTag NVIDIA Isaac ROS](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/index.html), potrebujeme, aby balík **AprilTag Detector** mal schopnosť hodnotiť polohu, čo bohužiaľ v tomto balíku chýba. Preto sme prešli na použitie potrebného balíka **[apriltag_ros](https://github.com/christianrauch/apriltag_ros)**.
+Bolo to prvé úspešné použitie balíka **AprilTag Detector** na virtuálnom stroji. Nielenže sme sa naučili tento balík spustiť, ale aj odosielať ako dáta video, ktoré sme sami nahrali. Dokázali sme vidieť fungujúci graf uzlov a vyhodnotiť efektívnosť práce balíka pomocou metrík, ako sú `frekvencia` publikácie správ a `latencia` (oneskorenie). Avšak, aby sme mohli overiť prácu balíka [AprilTag NVIDIA Isaac ROS](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/index.html), potrebujeme, aby balík **AprilTag Detector** mal schopnosť hodnotiť polohu, čo bohužiaľ v tomto balíku chýba. Preto sme prešli na použitie potrebného balíka [apriltag_ros](https://github.com/christianrauch/apriltag_ros).
 
 ## AprilTag Ros 
 ...
