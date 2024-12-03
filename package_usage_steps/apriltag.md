@@ -372,9 +372,60 @@ Balík **[Apriltag Detector](https://github.com/ros-misc-utilities/apriltag_dete
 **Github Repo:** [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector)
 
 ### Usage
-https://github.com/user-attachments/assets/6754d298-5c5f-4afd-a693-d837e96173bb
+1. Najskôr je potrebné naklonovať repozitár **Apriltag Detector** do pracovného priestoru, v našom prípade `perception_ws`, do priečinka `perception_ws/src` pomocou príkazu:  
+   ```bash
+   git clone https://github.com/ros-misc-utilities/apriltag_detector.git
+   ```
 
-![tags_detection](https://github.com/user-attachments/assets/ad69f67f-529f-4b87-be01-8984d99efb8c)
+2. Na odosielanie videa do Apriltag Detector použijeme vopred nahraté video s tagmi z rodiny **36h11**. Príklad nášho videa, pomenovaného `tv_at_1.mp4`, môžete vidieť nižšie:  
+   
+
+    https://github.com/user-attachments/assets/03ad72e2-dcf8-4c17-a648-df316d5e3ab9
+
+
+
+4. Na odoslanie tohto videa do Apriltag Detector je potrebné naklonovať balík, ktorý umožňuje streamovanie video súborov alebo obrázkov zo zložky do topiku. Napríklad použijeme balík [ros2_video_streamer](https://github.com/klintan/ros2_video_streamer). Spustite príkaz v priečinku `perception_ws/src`:  
+   ```bash
+   git clone https://github.com/klintan/ros2_video_streamer.git
+   ```
+
+5. Zostavte pracovný priestor pomocou nasledujúcich príkazov v priečinku `perception_ws`:  
+   ```bash
+   colcon build  
+   source install/setup.bash
+   ```
+
+6. Spustite v samostatných termináloch dva balíky:  
+   - **ros2_video_streamer**, pričom uveďte cestu k videu:  
+     ```bash
+     ros2 run camera_simulator camera_simulator --type video --path $HOME/Videos/tv_at_1.mp4 --loop
+     ```  
+   - **apriltag_detector**:  
+     ```bash
+     ros2 launch apriltag_detector detect.launch.py camera:=\image
+     ```
+
+7. Na overenie funkčnosti balíka použite príkaz:  
+   ```bash
+   ros2 run rqt_image_view rqt_image_view /image/image_tags
+   ```  
+   Tento príkaz zobrazí video s prekrytými apriltagmi. Výsledok si môžete pozrieť tu:  
+   ![tags_detection](https://github.com/user-attachments/assets/ad69f67f-529f-4b87-be01-8984d99efb8c) 
+
+8. Na ďalšie overenie môžete použiť tieto príkazy:
+   - Zobrazuje graf uzlov a topikov v systéme ROS 2, čo pomáha vizualizovať vzťahy medzi uzlami a topikmi.
+       ```bash
+       rqt_graph
+       ```
+   - Zobrazuje frekvenciu publikácie správ v špecifikovanom topiku, čo pomáha skontrolovať, ako rýchlo sa správy publikujú.
+       ```bash
+       ros2 topic hz /image/image_tags
+       ```
+   - Zobrazuje obsah správ v špecifikovanom topiku, čo umožňuje kontrolovať, aké dáta sú publikované a či sú správne.
+       ```bash
+       ros2 topic echo /image/image_tags  
+       ```
+
 
 ### Graphical Representation
 ....
@@ -382,6 +433,8 @@ https://github.com/user-attachments/assets/6754d298-5c5f-4afd-a693-d837e96173bb
 
 ### Summary
 ...
+
+
 
 ## AprilTag Ros 
 ...
