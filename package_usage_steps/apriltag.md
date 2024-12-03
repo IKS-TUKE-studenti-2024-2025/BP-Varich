@@ -363,11 +363,15 @@ Predtým, ako začneme používať akékoľvek balíky v ROS2, je potrebné nast
     ```  
 
 ## AprilTag Detector
-...
+Balík **[Apriltag Detector](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector/README.md)** je určený na detekciu a vizualizáciu Apriltagov. Tento repozitár vykonáva len úlohy súvisiace s vnímaním a neobsahuje odhady polohy kamery. Zvyčajne sa používa v prípadoch, keď nie je dostupná kalibrácia kamery alebo nie je potrebná. Balík **Apriltag Detector** zahŕňa prístup k nasledujúcim komponentom:  
 
-### ROS2 BUG
-**Github Repo:** [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector/README.md)
+- **[apriltag_draw](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_draw/README.md)**: Modul na vizualizáciu detegovaných Apriltagov na obrázkoch.  
+- **[apriltag_umich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md)**: Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Univerzity v Michigane ([UMich](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_umich/README.md)).  
+- **[apriltag_mit](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md)**: Doplnková knižnica a modul na detekciu Apriltagov pomocou implementácie Massachusettského technologického inštitútu ([MIT](https://github.com/ros-misc-utilities/apriltag_detector/blob/master/apriltag_detector_mit/README.md)).  
 
+**Github Repo:** [AprilTag Detector](https://github.com/ros-misc-utilities/apriltag_detector)
+
+### Usage
 https://github.com/user-attachments/assets/6754d298-5c5f-4afd-a693-d837e96173bb
 
 ![tags_detection](https://github.com/user-attachments/assets/ad69f67f-529f-4b87-be01-8984d99efb8c)
