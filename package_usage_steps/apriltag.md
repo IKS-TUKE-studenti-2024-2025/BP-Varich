@@ -433,9 +433,7 @@ V tejto grafickej reprezentácii je zobrazená schéma interakcie uzlov a tém, 
 ![apriltag_detector_rosgraph](https://github.com/user-attachments/assets/293b4aa4-181c-4020-82c8-840eb3c40b6a)
 
 ### Summary
-...
-
-
+Bolo to prvé úspešné použitie balíka **AprilTag Detector** na virtuálnom stroji. Nielenže sme sa naučili tento balík spustiť, ale aj odosielať ako dáta video, ktoré sme sami nahrali. Dokázali sme vidieť fungujúci graf uzlov a vyhodnotiť efektívnosť práce balíka pomocou metrík, ako sú `frekvencia` publikácie správ a `latencia` (oneskorenie). Avšak, aby sme mohli overiť prácu balíka [AprilTag NVIDIA Isaac ROS](https://nvidia-isaac-ros.github.io/repositories_and_packages/isaac_ros_apriltag/index.html), potrebujeme, aby balík **AprilTag Detector** mal schopnosť hodnotiť polohu, čo bohužiaľ v tomto balíku chýba. Preto sme prešli na použitie potrebného balíka **[apriltag_ros](https://github.com/christianrauch/apriltag_ros)**.
 
 ## AprilTag Ros 
 ...
