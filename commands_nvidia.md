@@ -16,7 +16,7 @@ sudo apt-get update
 sudo apt-get install -y nvidia-container-toolkit
 ```
 
-## Configuration NVIDIA Container Toolkit:
+## 2️⃣ Configuration NVIDIA Container Toolkit:
 4. Configure the container runtime by using the nvidia-ctk command:
 ```
 sudo nvidia-ctk runtime configure --runtime=docker
@@ -38,7 +38,7 @@ systemctl --user restart docker
 sudo nvidia-ctk config --set nvidia-container-cli.no-cgroups --in-place
 ```
 
-## 2️⃣ Developer Environment Setup:
+## 3️⃣ Developer Environment Setup:
 9. Restart Docker: 
 ```
 sudo systemctl daemon-reload && sudo systemctl restart docker
@@ -55,7 +55,7 @@ echo "export ISAAC_ROS_WS=${HOME}/workspaces/isaac_ros-dev/" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## 3️⃣ Installation Isaac AprilTag:
+## 4️⃣ Installation Isaac AprilTag:
 12. Clone `isaac_ros_common` under `${ISAAC_ROS_WS}/src`.
 ```
 cd ${ISAAC_ROS_WS}/src && \
