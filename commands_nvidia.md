@@ -101,8 +101,7 @@ fi
 ```
 15. Build isaac_ros_apriltag. Launch the Docker container using the `run_dev.sh` script:
 ```
-cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
-./scripts/run_dev.sh
+cd ~/workspaces/isaac_ros-dev/src/isaac_ros_common && ./scripts/run_dev.sh
 ```
 16. Install the prebuilt Debian package:
 ```
