@@ -1,0 +1,32 @@
+launch:
+- node_container:
+    pkg: rclcpp_components
+    exec: component_container
+    name: apriltag_container
+    namespace: ""
+
+    composable_node:
+    - pkg: opencv_cam
+      plugin: opencv_cam::OpencvCamNode
+      name: opencv_camera
+      namespace: opencv_cam
+      param:
+      - name: file
+        value: true
+      - name: filename
+        value: "/root/perception_ws/videos/tv_at_3.mp4"
+      - name: camera_info_path
+        value: "/root/perception_ws/calibration_data/ost.yaml"
+      remap:
+      - from: /image_raw
+        to: /opencv_cam/image_raw
+
+    - pkg: apriltag_ros
+      plugin: AprilTagNode
+      name: apriltag
+      namespace: apriltag
+      remap:
+      - from: image_rect
+        to: /opencv_cam/image_raw  # !
+      - from: camera_info
+        to: /opencv_cam/camera_info
