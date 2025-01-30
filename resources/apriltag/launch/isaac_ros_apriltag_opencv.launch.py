@@ -38,7 +38,8 @@ def generate_launch_description():
         name='apriltag',
         parameters=[{'size': 1.0,
                      'tag_family': 'tag36h11',
-                     'max_tags': 4}],
+                     'max_tags': 4, 
+                     'backends': 'CUDA'}],
         remappings=[('image', '/opencv_cam/image_raw'), ('camera_info', '/opencv_cam/camera_info')])
 
     # Container for composable nodes
